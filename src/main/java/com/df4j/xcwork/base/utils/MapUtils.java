@@ -92,6 +92,29 @@ public class MapUtils {
     }
 
     /**
+     * 从Map 中获取Short
+     *
+     * @param map
+     * @param fieldName
+     * @param defaultValue
+     * @return
+     */
+    public static Short getShort(Map map, String fieldName, Short defaultValue) {
+        return get(map, fieldName, defaultValue, Short::valueOf);
+    }
+
+    /**
+     * 从Map 中获取Short
+     *
+     * @param map
+     * @param fieldName
+     * @return
+     */
+    public static Short getShort(Map map, String fieldName) {
+        return get(fieldName, () -> getShort(map, fieldName, null));
+    }
+
+    /**
      * 从Map 中获取integer
      *
      * @param map
