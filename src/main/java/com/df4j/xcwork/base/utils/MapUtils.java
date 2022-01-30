@@ -48,11 +48,7 @@ public class MapUtils {
      * @return
      */
     public static String getString(Map map, String fieldName) {
-        String str = getString(map, fieldName, null);
-        if (str == null) {
-            throw new NullParameterException(fieldName);
-        }
-        return str;
+        return get(fieldName, () -> getString(map, fieldName, null));
     }
 
 
@@ -203,6 +199,7 @@ public class MapUtils {
 
     /**
      * 从Map中获取BigDecimal参数
+     *
      * @param map
      * @param fieldName
      * @return
